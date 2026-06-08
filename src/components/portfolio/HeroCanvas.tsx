@@ -81,13 +81,8 @@ function NeuralNet() {
       ))}
       {lines.map(([a, b], i) => {
         const geom = new THREE.BufferGeometry().setFromPoints([a, b]);
-        return (
-          // @ts-expect-error r3f intrinsics
-          <line key={i} geometry={geom}>
-            <lineBasicMaterial color="#7C3AED" transparent opacity={0.25} />
-          {/* @ts-expect-error r3f intrinsics */}
-          </line>
-        );
+        const mat = new THREE.LineBasicMaterial({ color: "#7C3AED", transparent: true, opacity: 0.25 });
+        return <primitive key={i} object={new THREE.Line(geom, mat)} />;
       })}
     </group>
   );
