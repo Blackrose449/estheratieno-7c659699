@@ -146,12 +146,12 @@ export default function Contact() {
                 type="submit"
                 className="group inline-flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-brand to-brand-2 px-6 py-3.5 text-sm font-medium text-white shadow-lg shadow-brand/30 transition hover:brightness-110"
               >
-                Send message
-                <Send className="h-4 w-4 transition group-hover:translate-x-0.5" />
+                Send via WhatsApp
+                <MessageSquare className="h-4 w-4 transition group-hover:translate-x-0.5" />
               </button>
               {sent && (
                 <p className="text-center text-xs text-emerald-400">
-                  Opening your email app — if nothing happens, write me directly at {PROFILE.email}.
+                  Opening WhatsApp — if nothing happens, message me directly at {PROFILE.phone}.
                 </p>
               )}
             </div>
