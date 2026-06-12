@@ -28,9 +28,12 @@ export default function Contact() {
       return;
     }
     setErrors({});
-    const subject = encodeURIComponent(`New inquiry from ${parsed.data.name}`);
-    const body = encodeURIComponent(`${parsed.data.message}\n\n— ${parsed.data.name} (${parsed.data.email})`);
-    window.location.href = `mailto:${PROFILE.email}?subject=${subject}&body=${body}`;
+    const text = encodeURIComponent(
+      `Hi Esther, my name is ${parsed.data.name} (${parsed.data.email}).\n\n${parsed.data.message}`
+    );
+    const phone = PROFILE.phone.replace(/[^0-9]/g, "");
+    const waUrl = `https://wa.me/${phone}?text=${text}`;
+    window.open(waUrl, "_blank", "noopener,noreferrer");
     setSent(true);
   }
 
